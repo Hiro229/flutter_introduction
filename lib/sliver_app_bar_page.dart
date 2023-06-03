@@ -23,12 +23,29 @@ class _SliverAppBarPageState extends State<SliverAppBarPage> {
             toolbarHeight: 60,
             flexibleSpace: FlexibleSpaceBar(
               title: Text('ChatGPTの活用方法'),
-              background: Container(
-                width: double.infinity,
-                child: Image.asset(
-                  'images/learning.jpg',
-                  fit: BoxFit.cover,
-                ),
+              background: Stack(
+                children: [
+                  Container(
+                    width: double.infinity,
+                    child: Image.asset(
+                      'images/learning.jpg',
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                  Container(
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        begin: FractionalOffset.topCenter,
+                        end: FractionalOffset.bottomCenter,
+                        stops: [0, 0.9],
+                        colors: [
+                          Colors.grey.withOpacity(0),
+                          Colors.black38,
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
           ),
