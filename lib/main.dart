@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'grid_view_page.dart';
 import 'sliver_app_bar_page.dart';
 import 'shrinkable_footer_page.dart';
+import 'responsive_design_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: ShrinkableFooterPage(),
+      home: ResponsiveDesignPage(),
     );
   }
 }
