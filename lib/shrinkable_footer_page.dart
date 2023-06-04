@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
+import 'package:flutter/rendering.dart';
+
 class ShrinkableFooterPage extends StatefulWidget {
   const ShrinkableFooterPage({Key? key}) : super(key: key);
 
@@ -29,61 +31,76 @@ class _ShrinkableFooterPageState extends State<ShrinkableFooterPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: _BottomNavigationBar(isHiding: isHiding),
+      backgroundColor: Colors.grey.shade100,
       body: SafeArea(
-        child: ListView(
-          controller: _scrollController,
+        child: Stack(
           children: [
-            Container(
-              padding: const EdgeInsets.only(left: 16, right: 50),
-              height: 200,
-              width: double.infinity,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.only(
-                  bottomRight: Radius.circular(20.0),
-                  bottomLeft: Radius.circular(20.0),
+            ListView(
+              controller: _scrollController,
+              children: [
+                Container(
+                  padding: const EdgeInsets.only(left: 16, right: 50),
+                  height: 200,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.only(
+                      bottomRight: Radius.circular(20.0),
+                      bottomLeft: Radius.circular(20.0),
+                    ),
+                    color: Color(0xFFFEEAE6),
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      const SizedBox(
+                        height: 70,
+                      ),
+                      Text(
+                        'スクロールに応じて\nBottomNavigationBarが\n縮みます。',
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 24.0,
+                            color: Color(0xFF442C2E),
+                            height: 1.2),
+                      ),
+                      const SizedBox(
+                        height: 20.0,
+                      )
+                    ],
+                  ),
                 ),
-                color: Color(0xFFFEEAE6),
+                const SizedBox(height: 20.0),
+                Image.asset(
+                  'images/flower-field.jpg',
+                  fit: BoxFit.cover,
+                ),
+                const SizedBox(height: 20.0),
+                Image.asset(
+                  'images/learning.jpg',
+                ),
+                const SizedBox(height: 20.0),
+                Image.asset(
+                  'images/forest.jpg',
+                ),
+                const SizedBox(height: 20.0),
+                Image.asset(
+                  'images/road.jpg',
+                  fit: BoxFit.cover,
+                ),
+                const SizedBox(height: 20.0),
+                Image.asset(
+                  'images/summer-beach-key.jpg',
+                  fit: BoxFit.cover,
+                ),
+              ],
+            ),
+            Positioned(
+              bottom: 0,
+              child: _BottomNavigationBar(
+                isHiding: isHiding,
               ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  const SizedBox(
-                    height: 70,
-                  ),
-                  Text(
-                    'スクロールに応じて\nBottomNavigationBarが\n知事見ます。',
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 24.0,
-                        color: Color(0xFF442C2E),
-                        height: 1.2),
-                  ),
-                  const SizedBox(
-                    height: 20.0,
-                  )
-                ],
-              ),
-            ),
-            const SizedBox(height: 20.0),
-            Image.asset(
-              'images/flower-field.jpg',
-              fit: BoxFit.cover,
-            ),
-            const SizedBox(height: 20.0),
-            Image.asset(
-              'images/learning.jpg',
-            ),
-            const SizedBox(height: 20.0),
-            Image.asset(
-              'forest.jpg',
-            ),
-            const SizedBox(height: 20.0),
-            Image.asset(
-              'images/road.jpg',
-              fit: BoxFit.cover,
-            ),
+            )
           ],
         ),
       ),
@@ -107,11 +124,13 @@ class _BottomNavigationBar extends StatelessWidget {
   _BottomNavigationBar({required this.isHiding});
 
   final bool isHiding;
+
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
-    return Container(
-      height: 60,
+    return AnimatedContainer(
+      duration: Duration(milliseconds: 200),
+      height: isHiding ? 32 : 60,
       color: Color(0xFFFEEAE6),
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 16),
