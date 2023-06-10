@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:practice_gridview/hero_page.dart';
 import 'grid_view_page.dart';
+import 'open_container_page.dart';
 import 'sliver_app_bar_page.dart';
 import 'shrinkable_footer_page.dart';
 import 'responsive_design_page.dart';
@@ -128,6 +129,19 @@ class MainPage extends StatelessWidget {
               onPressed: () {
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => TransitionPage()));
+              },
+            ),
+            SizedBox(height: 20),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                fixedSize: Size(screen_width * 0.7, screen_height * 0.05),
+              ),
+              child: Text('Open Container Page'),
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => OpenContainerPage()));
               },
             ),
             SizedBox(height: 20),

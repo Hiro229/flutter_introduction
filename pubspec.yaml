@@ -37,6 +37,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   google_fonts: 4.0.4 # バージョンを4.0.4に指定する
   cached_network_image: ^3.2.3
+  animations: ^2.0.7
 
 dev_dependencies:
   flutter_test:
