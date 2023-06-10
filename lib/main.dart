@@ -4,6 +4,7 @@ import 'grid_view_page.dart';
 import 'sliver_app_bar_page.dart';
 import 'shrinkable_footer_page.dart';
 import 'responsive_design_page.dart';
+import 'transition_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -116,6 +117,17 @@ class MainPage extends StatelessWidget {
               onPressed: () {
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => HeroFromPage()));
+              },
+            ),
+            SizedBox(height: 20),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                fixedSize: Size(screen_width * 0.7, screen_height * 0.05),
+              ),
+              child: Text('Transition Page'),
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => TransitionPage()));
               },
             ),
             SizedBox(height: 20),
