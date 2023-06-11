@@ -8,6 +8,7 @@ import 'sliver_app_bar_page.dart';
 import 'shrinkable_footer_page.dart';
 import 'responsive_design_page.dart';
 import 'transition_page.dart';
+import 'tween_staggered_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -184,6 +185,21 @@ class MainPage extends StatelessWidget {
                     context,
                     MaterialPageRoute(
                         builder: (context) => AnimationControllerPage()));
+              },
+            ),
+            SizedBox(height: 20),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.green,
+                foregroundColor: Colors.white,
+                fixedSize: Size(screen_width * 0.7, screen_height * 0.05),
+              ),
+              child: Text('Tween Staggered Page'),
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => TweenStaggeredPage()));
               },
             ),
             SizedBox(height: 20),
