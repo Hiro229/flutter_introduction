@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:practice_gridview/hero_page.dart';
+import 'animation_controller_page.dart';
 import 'grid_view_page.dart';
 import 'open_container_page.dart';
 import 'shared_axis_transition_page.dart';
@@ -36,7 +37,11 @@ class MainPage extends StatelessWidget {
     final screen_height = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(
-        title: Text('Main Page'),
+        backgroundColor: Colors.blueAccent,
+        foregroundColor: Colors.white,
+        title: Text(
+          'Main Page',
+        ),
       ),
       body: Center(
         child: Column(
@@ -113,6 +118,8 @@ class MainPage extends StatelessWidget {
             SizedBox(height: 20),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.green,
+                foregroundColor: Colors.white,
                 fixedSize: Size(screen_width * 0.7, screen_height * 0.05),
               ),
               child: Text('Hero Page'),
@@ -124,6 +131,8 @@ class MainPage extends StatelessWidget {
             SizedBox(height: 20),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.green,
+                foregroundColor: Colors.white,
                 fixedSize: Size(screen_width * 0.7, screen_height * 0.05),
               ),
               child: Text('Transition Page'),
@@ -135,6 +144,8 @@ class MainPage extends StatelessWidget {
             SizedBox(height: 20),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.green,
+                foregroundColor: Colors.white,
                 fixedSize: Size(screen_width * 0.7, screen_height * 0.05),
               ),
               child: Text('Open Container Page'),
@@ -148,6 +159,8 @@ class MainPage extends StatelessWidget {
             SizedBox(height: 20),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.green,
+                foregroundColor: Colors.white,
                 fixedSize: Size(screen_width * 0.7, screen_height * 0.05),
               ),
               child: Text('Shared Axis Transition Page'),
@@ -156,6 +169,21 @@ class MainPage extends StatelessWidget {
                     context,
                     MaterialPageRoute(
                         builder: (context) => SharedAxisTransitionPage()));
+              },
+            ),
+            SizedBox(height: 20),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.green,
+                foregroundColor: Colors.white,
+                fixedSize: Size(screen_width * 0.7, screen_height * 0.05),
+              ),
+              child: Text('Animation Controller Page'),
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => AnimationControllerPage()));
               },
             ),
             SizedBox(height: 20),
